@@ -1,4 +1,14 @@
 const findTheOldest = function(array) {
+    year = new Date().getFullYear();
+    array.forEach((person) => {
+        if ('yearOfDeath' in person) {
+            return person;
+        } else {
+            person.yearOfDeath = year;
+            console.log(person);
+            return person;
+        }
+    })
     oldAge = array.sort((a, b) => {
         if ((a.yearOfDeath - a.yearOfBirth) > (b.yearOfDeath - b.yearOfBirth)) {
             return -1
